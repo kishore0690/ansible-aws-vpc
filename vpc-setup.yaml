@@ -10,7 +10,7 @@
        name: "{{vpc_name}}"
        cidr_block: "{{vpcCidr}}"
        region: "{{region}}"
-       dns_hostname: yes
+       dns_hostnames: yes
        dns_support: yes
        tenancy: default
        state: "{{state}}"
