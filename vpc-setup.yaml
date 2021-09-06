@@ -1,8 +1,8 @@
 - hosts: localhost
   connection: local
-  gather_facts: true
+  gather_facts: False
   tasks:
-    - name: Include vpc variables
+    - name: Import vpc variables
       include_vars: vars/vpc_setup
 
     - name: Create Vprofile vpc
@@ -14,4 +14,4 @@
        dns_support: yes
        tenancy: default
        state: "{{state}}"
-       register: vpcout
+      register: vpcout
