@@ -137,33 +137,32 @@
       register: prvRT_out
 
     - debug:
-        var: "{{item}}"
-        loop:
+       var: "{{item}}"
+      loop:
           - vpcout.vpc.id
           - pubsub1_out.subnet.id
           - pubsub2_out.subnet.id
           - pubsub3_out.subnet.id
-          - privsub1_out.subnet.id
-          - privsub2_out.subnet.id
-          - privsub3_out.subnet.id
+          - prvsub1_out.subnet.id
+          - prvsub2_out.subnet.id
+          - prvsub3_out.subnet.id
           - igw_out.gateway_id
           - pubRT_out.route_table.id
-          - NATGW_out.nat_gateway_id
-          - privRT_out.route_table.id
-
-          - set_fact:
-              vpcid: "{{vpcout.vpc.id}}"
-              pubsub1id: "{{ pubsub1_out.subnet.id }}"
-              pubsub2id: "{{ pubsub2_out.subnet.id }}"
-              pubsub3id: "{{ pubsub3_out.subnet.id }}"
-              privsub1id: "{{ privsub1_out.subnet.id }}"
-              privsub2id: "{{ privsub2_out.subnet.id }}"
-              privsub3id: "{{ privsub3_out.subnet.id }}"
-              igwid: "{{ igw_out.gateway_id }}"
-              pubRTid: "{{ pubRT_out.route_table.id }}"
-              NATGWid: "{{ NATGW_out.nat_gateway_id }}"
-              privRTid: "{{ privRT_out.route_table.id }}"
-              cacheable: yes
+          - NatGW_out.nat_gateway_id
+          - prvRT_out.route_table.id
+    - set_fact:
+       vpcid: "{{vpcout.vpc.id}}"
+       pubsub1id: "{{ pubsub1_out.subnet.id }}"
+       pubsub2id: "{{ pubsub2_out.subnet.id }}"
+       pubsub3id: "{{ pubsub3_out.subnet.id }}"
+       privsub1id: "{{ prvsub1_out.subnet.id }}"
+       privsub2id: "{{ prvsub2_out.subnet.id }}"
+       privsub3id: "{{ prvsub3_out.subnet.id }}"
+       igwid: "{{ igw_out.gateway_id }}"
+       pubRTid: "{{ pubRT_out.route_table.id }}"
+       NATGWid: "{{ NatGW_out.nat_gateway_id }}"
+       privRTid: "{{ prvRT_out.route_table.id }}"
+       cacheable: yes
 
     - name: Create variables file for vpc output
       copy:
